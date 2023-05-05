@@ -1,0 +1,4 @@
+server:
+  name: hh
+  port: 9487
+  host: localhost
