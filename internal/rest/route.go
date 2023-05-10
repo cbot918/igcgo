@@ -2,13 +2,13 @@ package rest
 
 import (
 	"github.com/cbot918/health-helper/internal/rest/controller"
-	"github.com/gin-gonic/gin"
+	"github.com/gofiber/fiber/v2"
 )
 
-func RegistRoute(server *gin.Engine) *gin.Engine {
+func RegistRoute(server *fiber.App) *fiber.App {
 	ctr := controller.New()
 
-	server.GET("/", ctr.Hello)
+	server.Get("/", ctr.Hello)
 
 	return server
 }

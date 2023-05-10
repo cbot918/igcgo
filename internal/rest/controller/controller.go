@@ -1,9 +1,7 @@
 package controller
 
 import (
-	"net/http"
-
-	"github.com/gin-gonic/gin"
+	"github.com/gofiber/fiber/v2"
 )
 
 type Controller struct{}
@@ -12,8 +10,6 @@ func New() *Controller {
 	return &Controller{}
 }
 
-func (ctr *Controller) Hello(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"message": "pong",
-	})
+func (ctr *Controller) Hello(c *fiber.Ctx) error {
+	return c.SendString("Hello, World!")
 }
