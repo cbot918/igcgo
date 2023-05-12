@@ -12,6 +12,20 @@ type Config struct {
 		Port string
 		Host string
 	}
+	Web struct {
+		StaticPath string
+	}
+	Connection struct {
+		Postgresql struct {
+			DbType   string
+			Db       string
+			Host     string
+			User     string
+			Password string
+			MaxOpen  int
+			MaxIdle  int
+		}
+	}
 }
 
 func New() (*Config, error) {

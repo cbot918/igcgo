@@ -1,5 +1,5 @@
 run:
-	go run cmd/run.go
+	go run cmd/igcgo/main.go
 
 test:
 	go test ./...
@@ -11,9 +11,8 @@ auth:
 	curl --location 'http://localhost:9487/auth' --header 'Content-Type: application/json' --data-raw '{"id":12345,"email":"yale@gmail.com","password":"12345"}'
 
 watch:
-	cp cmd/main.go ./
+	cp main.go ./cmd/igcgo/main.go
 	gowatch
-
 
 #database
 DOCKER_NETWORK="igcgo_igcgo"

@@ -1,4 +1,20 @@
 server:
-  name: hh
+  name: igcgo
   port: 9487
   host: localhost
+
+web:
+  staticPath: ./igcgo-ui/build
+
+connection:
+  postgresql:
+    DbType: postgres
+    Host: localhost:5432
+    Db: igcgo
+    User: postgres
+    # future: password should provided by K8s secrets
+    Password: 12345
+    MaxOpen: 10
+    MaxIdle: 2
+    
+  

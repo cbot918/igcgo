@@ -1,7 +1,3 @@
-CREATE TABLE users();
-CREATE TABLE post();
-
-
-
-
+CREATE TABLE IF NOT EXISTS users();
+CREATE TABLE IF NOT EXISTS post();
 

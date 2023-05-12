@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"database/sql"
 	"encoding/json"
 	"fmt"
 	"regexp"
@@ -11,10 +12,14 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-type Auth struct{}
+type Auth struct {
+	Db *sql.DB
+}
 
-func NewAuthController() *Auth {
-	return &Auth{}
+func NewAuthController(db *sql.DB) *Auth {
+	return &Auth{
+		Db: db,
+	}
 }
 
 func (a *Auth) Auth(c *fiber.Ctx) error {
@@ -25,7 +30,7 @@ func (a *Auth) Auth(c *fiber.Ctx) error {
 		panic(err)
 	}
 
-	authService := service.NewAuthService()
+	authService := service.NewAuthService(a.Db)
 	token := authService.GetJwtToken(int(user.Id), user.Email)
 
 	res := struct {

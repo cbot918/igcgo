@@ -1,17 +1,19 @@
 package http
 
 import (
+	"database/sql"
+
 	"github.com/cbot918/igcgo/internal/http/controller"
 	"github.com/gofiber/fiber/v2"
 )
 
-func RegistRoute(rest *fiber.App) *fiber.App {
+func RegistRoute(http *fiber.App, db *sql.DB) *fiber.App {
 	common := controller.NewCommonController()
 
-	auth := controller.NewAuthController()
+	auth := controller.NewAuthController(db)
 
-	rest.Get("/ping", common.Ping)
-	rest.Post("/auth", auth.Auth)
+	http.Get("/ping", common.Ping)
+	http.Post("/auth", auth.Auth)
 
-	return rest
+	return http
 }
