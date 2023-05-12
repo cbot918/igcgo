@@ -27,13 +27,13 @@ func main() {
 		cfg.Connection.Postgresql.Host,
 		cfg.Connection.Postgresql.Db,
 	)
-	conn := dby.GetConn(cfg.Connection.Postgresql.DbType, connStr)
+	conn := dby.MakeConn(cfg.Connection.Postgresql.DbType, connStr)
 	defer conn.Close()
 	dby.Ping(conn)
 
 	// HttpServer Init
 	server := http.NewHttpServer(conn)
-	server.Static("/", cfg.Web.StaticPath) // if serve spa
+	server.Static("/", cfg.Web.StaticPath) // serve spa
 	err = server.Listen(fmt.Sprintf(":%s", cfg.Server.Port))
 	if err != nil {
 		panic(err)

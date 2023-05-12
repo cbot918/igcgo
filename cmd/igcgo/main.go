@@ -27,7 +27,7 @@ func main() {
 		cfg.Connection.Postgresql.Host,
 		cfg.Connection.Postgresql.Db,
 	)
-	conn := dby.GetConn(cfg.Connection.Postgresql.DbType, connStr)
+	conn := dby.MakeConn(cfg.Connection.Postgresql.DbType, connStr)
 	defer conn.Close()
 	dby.Ping(conn)
 

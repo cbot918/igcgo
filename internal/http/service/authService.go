@@ -3,6 +3,7 @@ package service
 import (
 	"database/sql"
 
+	"github.com/cbot918/igcgo/internal/http/repository"
 	"github.com/cbot918/igcgo/lib"
 )
 
@@ -23,6 +24,8 @@ func (a *AuthService) GetJwtToken(id int, email string) string {
 		panic(err)
 	}
 
+	authRepo := repository.NewAuth(a.Db)
+	authRepo.SaveUserToken()
 	// unImplemented: set jwt token to database
 
 	return token

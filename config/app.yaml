@@ -4,7 +4,7 @@ server:
   host: localhost
 
 web:
-  staticPath: ./igcgo-ui/build
+  staticPath: ./ui/build
 
 connection:
   postgresql:
@@ -16,5 +16,3 @@ connection:
     Password: 12345
     MaxOpen: 10
     MaxIdle: 2
-    
-  

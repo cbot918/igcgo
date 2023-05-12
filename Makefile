@@ -14,6 +14,9 @@ watch:
 	cp main.go ./cmd/igcgo/main.go
 	gowatch
 
+migy:
+	go run tool/migy/migy.go
+
 #database
 DOCKER_NETWORK="igcgo_igcgo"
 psql:

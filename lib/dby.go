@@ -17,7 +17,7 @@ func (d *Dby) GetConnStr(dbType string, user string, password string, host strin
 	return fmt.Sprintf("%s://%s:%s@%s/%s?sslmode=disable", dbType, user, password, host, db)
 }
 
-func (d *Dby) GetConn(dbType string, connStr string) *sql.DB {
+func (d *Dby) MakeConn(dbType string, connStr string) *sql.DB {
 	conn, err := sql.Open(dbType, connStr)
 	if err != nil {
 		panic(err)
