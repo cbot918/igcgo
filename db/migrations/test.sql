@@ -1,0 +1,7 @@
+CREATE TABLE users();
+CREATE TABLE post();
+
+ALTER TABLE users ADD COLUMN id SERIAL PRIMARY KEY;
+ALTER TABLE users ADD COLUMN email varchar(255) NOT NULL;
+ALTER TABLE users ADD COLUMN password varchar(255) NOT NULL;
+ALTER TABLE users ADD COLUMN name varchar(255);

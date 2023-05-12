@@ -1,0 +1,18 @@
+version: "3.7"
+
+networks:
+  igcgo:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=igcgo
+    networks:
+      - igcgo
+    ports:
+      - 5432:5432
+    restart: always
+      
